@@ -1,11 +1,12 @@
 const data = require('../data/zoo_data');
 
-const getEmployeeByName = (employeeName) => data.employees.reduce(((xablau, cur) => {
+const getEmployeeByName = (employeeName) => data.employees.reduce(((acc, cur) => {
   if (cur.firstName === employeeName || cur.lastName === employeeName) {
-    xablau = cur;
-    return xablau;
+    let actual = acc;
+    actual = cur;
+    return actual;
   }
-  return xablau;
+  return acc;
 }), {});
 
 module.exports = getEmployeeByName;
