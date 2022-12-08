@@ -20,7 +20,10 @@ const countEntrants = (entrants) => {
   return obj;
 };
 
-const calculateEntry = (entrants) => {
+const calculateEntry = (entrants = 0) => {
+  if (entrants.length === 0 || Array.isArray(entrants) === false) {
+    return 0;
+  }
   const obj = countEntrants(entrants);
   const seniors = obj.senior * data.prices.senior;
   const adults = obj.adult * data.prices.adult;
