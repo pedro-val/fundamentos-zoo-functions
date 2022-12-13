@@ -8,29 +8,29 @@ const getDaysByAnimals = (parameter) => {
 };
 
 const getOneAnimal = (p) => {
-  const newObj = { [p]: {
+  const obj = { [p]: {
     officeHour: '',
     exhibition: [],
   },
   };
   if (p === 'Monday') {
-    newObj[p].exhibition = 'The zoo will be closed!';
-    newObj[p].officeHour = 'CLOSED';
-    return newObj;
+    obj[p].exhibition = 'The zoo will be closed!';
+    obj[p].officeHour = 'CLOSED';
+    return obj;
   }
   const filtered = data.species.filter((especie) =>
     especie.availability.includes(p) === true);
   filtered.forEach((filter) => {
-    newObj[p].exhibition.push(filter.name);
-    newObj[p].officeHour = `Open from ${data.hours[p].open}am until ${data.hours[p].close}pm`;
+    obj[p].exhibition.push(filter.name);
+    obj[p].officeHour = `Open from ${data.hours[p].open}am until ${data.hours[p].close}pm`;
   });
-  return newObj;
+  return obj;
 };
 
 const getAllAnimals = (p) => {
-  const newObj = {};
-  p.forEach((dia) => Object.assign(newObj, getOneAnimal(dia)));
-  return newObj;
+  const obj = {};
+  p.forEach((dia) => Object.assign(obj, getOneAnimal(dia)));
+  return obj;
 };
 
 const getSchedule = (p = 0) => {
