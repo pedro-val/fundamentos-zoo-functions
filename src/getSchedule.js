@@ -1,36 +1,5 @@
 const data = require('../data/zoo_data');
 
-const obj = {
-  Tuesday: {
-    officeHour: '',
-    exhibition: [],
-  },
-  Wednesday: {
-    officeHour: '',
-    exhibition: [],
-  },
-  Thursday: {
-    officeHour: '',
-    exhibition: [],
-  },
-  Friday: {
-    officeHour: '',
-    exhibition: [],
-  },
-  Saturday: {
-    officeHour: '',
-    exhibition: [],
-  },
-  Sunday: {
-    officeHour: '',
-    exhibition: [],
-  },
-  Monday: {
-    officeHour: 'CLOSED',
-    exhibition: 'The zoo will be closed!',
-  },
-};
-
 const dias = ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday'];
 
 const getDaysByAnimals = (parameter) => {
@@ -58,29 +27,20 @@ const getOneAnimal = (p) => {
   return newObj;
 };
 
-const getAnimals = (p) => {
+const getAllAnimals = (p) => {
   const newObj = {};
-  Object.assign(newObj, obj);
-  const filtered = data.species.filter((especie) =>
-    especie.availability.includes(p) === true);
-  filtered.forEach((filter) => {
-    newObj[p].officeHour = `Open from ${data.hours[p].open}am until ${data.hours[p].close}pm`;
-    newObj[p].exhibition.push(filter.name);
-  });
+  p.forEach((dia) => Object.assign(newObj, getOneAnimal(dia)));
   return newObj;
 };
 
 const getSchedule = (p = 0) => {
-  const newObj = {};
-  Object.assign(newObj, obj);
   if (data.species.some((especie) => especie.name === p)) {
     return getDaysByAnimals(p);
   }
   if (dias.includes(p)) {
     return getOneAnimal(p);
   }
-  dias.forEach((day) => getAnimals(day));
-  return obj;
+  return getAllAnimals(dias);
 };
 
 module.exports = getSchedule;
