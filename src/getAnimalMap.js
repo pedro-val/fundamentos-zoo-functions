@@ -1,3 +1,30 @@
+// Faça o mapeamento geográfico dos animais de cada espécie e realize filtros de localização, nome em ordem alfabética e sexo.
+// A função getAnimalMap é responsável por categorizar os animais por localização, além de filtrá-los por região, nome e sexo a partir de um parâmetro. A estrutura do retorno da função é baseada na localização das espécies:
+//   {
+//     NE: [ /* dados aqui */],
+//     NW: [/* dados aqui */],
+//     SE: [/* dados aqui */],
+//     SW: [/* dados aqui */],
+//   }
+// O parâmetro da função será um objeto que poderá conter:
+// includeNames: true, que retorna o nome dos animais no seguinte formato:
+// sorted: true que retorna o nome dos animais por ordem alfabética no seguinte formato:
+// sex: male ou sex: female retorna o nome dos animais que são machos ou fêmeas no seguinte formato:
+// Caso a função não receba parâmetro, as espécies dos animais devem ser categorizadas por localização e deve retornar um objeto no seguinte formato:
+// Para isso:
+// Retorne a espécie de todos os animais categorizados por localização caso a função:
+// não receba parâmetro;
+// não receba o parâmetro {includeNames: true} e receba apenas o parâmetro {sex: female};
+// não receba o parâmetro {includeNames: true} e receba apenas o parâmetro {sex: female, sorted: true}.
+// Retorne a espécie e o nome dos animais caso a função receba apenas o parâmetro {includeNames: true};
+// Retorne a espécie e o nome dos animais em ordem alfabética caso a função receba o parâmetro {includeNames: true, sorted: true};
+// Retorne a espécie e o nome dos animais filtrado por sexo:
+// Retorne a espécie e o nome dos animais fêmeas, caso o parâmetro da função seja {includeNames: true, sex: female};
+// Retorne a espécie e o nome dos animais machos, caso o parâmetro da função seja {includeNames: true, sex: male};
+// Retorne a espécie e o nome dos animais filtrado por sexo e por ordem alfabética:
+// Retorne a espécie e o nome dos animais fêmeas em ordem alfabética, caso o parâmetro da função seja {includeNames: true, sex: female, sorted: true};
+// Retorne a espécie e o nome dos animais machos em ordem alfabética, caso o parâmetro da função seja {includeNames: true, sex: male, sorted: true};
+
 const data = require('../data/zoo_data');
 
 const ne = data.species.filter((specie) => specie.location.includes('NE'));

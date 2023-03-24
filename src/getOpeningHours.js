@@ -1,3 +1,5 @@
+// Função no qual o requisito foi aplicar cobertura de DataTransferItemList, que está disponível na pasta /test
+
 const { hours } = require('../data/zoo_data');
 
 const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];

@@ -1,3 +1,21 @@
+// Implemente a função getEmployeesCoverage que deverá retornar as informações sobre a pessoa colaboradora e por quais espécies ela é responsável.
+// A função vai receber um objeto como parâmetro que vai determinar o seu comportamento, sendo:
+// name: o nome ou sobrenome da pessoa a ser buscada;
+// id: o id da pessoa a ser buscada.
+// A função deve retornar um objeto no seguinte formato:
+// {
+// id: "4b40a139-d4dc-4f09-822d-ec25e819a5ad", // id da pessoa
+// fullName: "Sharonda Spry", // nome completo: firstName + lastName
+// species: [ "otters", "frogs" ], // espécies as quais a pessoa é responsável
+// locations: [ "SE", "SW" ], // Um array contendo todas as localizações das espécies
+// }
+// Para isso:
+// Retorne as informações da pessoa correspondente ao receber um objeto com a propriedade name:
+// a propriedade name pode possuir como valor o primeiro ou último nome da pessoa colaboradora, portanto garanta que seu código funciona das duas maneiras.
+// Retorne as informações da pessoa correspondente ao receber um objeto com a propriedade id;
+// Retorne um array com as informações de todas as pessoas colaboradoras caso a função não receba parâmetro;
+// Lance um erro caso o id seja inválido.
+
 const data = require('../data/zoo_data');
 
 const getAnimals = (ids) => {
